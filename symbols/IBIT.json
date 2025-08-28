@@ -1,7 +1,0 @@
-{
-  "id": "IBIT",
-  "type": "etf",
-  "source": "yahoo_finance",
-  "symbol": "IBIT",
-  "currency": "USD"
-}
