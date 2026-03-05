@@ -26,13 +26,13 @@ r = requests.get(url)
 r.raise_for_status()
 user_agents = r.json()
 
-```
+
 for user_agent in user_agents:
     if operating_system.lower() in user_agent.lower() and browser.lower() in user_agent.lower():
         return user_agent
 
 return None
-```
+
 
 def fetch_issa_price(symbol_track_info, symbol, max_attempts=5):
 “””
@@ -43,7 +43,7 @@ Always ensures the driver is properly closed after each attempt.
 symbol_price = 0
 symbol_price_date = ‘’
 
-```
+
 for attempt in range(1, max_attempts + 1):
     driver = None
     try:
@@ -118,14 +118,14 @@ for attempt in range(1, max_attempts + 1):
         time.sleep(backoff)
 
 return symbol_price, symbol_price_date
-```
+
 
 def main():
 logging.info(f”reading symbols *.json files in {SYMBOLS_DIR} …”)
 for symbol_track_file_path in glob.glob(os.path.join(SYMBOLS_DIR, ’*.json’), recursive=True):
 logging.info(f”processing {symbol_track_file_path} …”)
 
-```
+
     try:
         with open(symbol_track_file_path) as f:
             symbol_track_info = json.load(f)
@@ -181,18 +181,18 @@ logging.info(f”processing {symbol_track_file_path} …”)
     except Exception as e:
         logging.exception(f'Failed to process {symbol_track_file_path}')
         raise
-```
+
 
 def get_issa_rest_api_response(request):
 if 400 <= request.response.status_code < 600:
 raise Exception(f’Status code {request.response.status_code}’)
 
-```
+
 response = brotli.decompress(request.response.body)
 response = response.decode('utf-8')
 response = json.loads(response)
 return response
-```
+
 
 if **name** == ‘**main**’:
 main()
