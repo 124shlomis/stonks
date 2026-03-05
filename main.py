@@ -11,7 +11,7 @@ import chromedriver_autoinstaller
 from selenium.webdriver.chrome.options import Options
 from seleniumwire import webdriver
 
-logging.getLogger(“seleniumwire”).setLevel(logging.ERROR)
+logging.getLogger("seleniumwire").setLevel(logging.ERROR)
 logging.basicConfig(level=logging.INFO, format=’%(asctime)s - %(levelname)s - %(message)s’)
 
 chromedriver_autoinstaller.install()
