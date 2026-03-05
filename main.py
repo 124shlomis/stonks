@@ -85,7 +85,6 @@ def main():
                     time.sleep(30 * attempt)
                     driver.implicitly_wait(30 * attempt)
                     for request in driver.requests:
-                        logging.info(request.url)
                         if request.response:
                             if request.url.startswith('https://api.tase.co.il/api/company/securitydata'):
                                 response = get_issa_rest_api_response(request)
